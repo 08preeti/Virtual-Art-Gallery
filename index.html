@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Art Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🎨 Virtual Art Gallery</h1>
+    <p>A curated digital space showcasing creative artworks</p>
+</header>
+
+<section class="filters">
+    <button onclick="filterArt('all')">All</button>
+    <button onclick="filterArt('mythological')">Mythological</button>
+    <button onclick="filterArt('traditional')">Traditional </button>
+    <button onclick="filterArt('marine')">Marine</button>
+    <button onclick="filterArt('street')">Street</button>
+    <button onclick="filterArt('modern')">Modern</button>
+</section>
+
+<section class="gallery" id="gallery"></section>
+
+<!-- Modal -->
+<div class="modal" id="artModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <img id="modalImg">
+        <h2 id="modalTitle"></h2>
+        <p id="modalArtist"></p>
+        <p id="modalDesc"></p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Virtual Art Gallery | Created by Preeti Chikkali</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
