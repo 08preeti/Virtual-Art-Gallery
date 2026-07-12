@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Virtual Art Gallery</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Art Gallery — A Curated Digital Exhibition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>🎨 Virtual Art Gallery</h1>
-    <p>A curated digital space showcasing creative artworks</p>
+<header class="masthead">
+  <p class="masthead__eyebrow">Est. 2026 &middot; Online Exhibition</p>
+  <h1 class="masthead__title">Virtual Art Gallery</h1>
+  <p class="masthead__sub">A curated digital space showcasing mythological, marine, street, traditional &amp; modern works</p>
 </header>
 
-<section class="filters">
-    <button onclick="filterArt('all')">All</button>
-    <button onclick="filterArt('mythological')">Mythological</button>
-    <button onclick="filterArt('traditional')">Traditional </button>
-    <button onclick="filterArt('marine')">Marine</button>
-    <button onclick="filterArt('street')">Street</button>
-    <button onclick="filterArt('modern')">Modern</button>
-</section>
+<nav class="filters" id="filters" aria-label="Filter artworks by category">
+  <button class="filters__item is-active" data-category="all">All</button>
+  <button class="filters__item" data-category="mythological">Mythological</button>
+  <button class="filters__item" data-category="traditional">Traditional</button>
+  <button class="filters__item" data-category="marine">Marine</button>
+  <button class="filters__item" data-category="street">Street</button>
+  <button class="filters__item" data-category="modern">Modern</button>
+</nav>
 
-<section class="gallery" id="gallery"></section>
+<main class="gallery" id="gallery" aria-live="polite"></main>
 
-<!-- Modal -->
-<div class="modal" id="artModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">×</span>
-        <img id="modalImg">
-        <h2 id="modalTitle"></h2>
-        <p id="modalArtist"></p>
-        <p id="modalDesc"></p>
+<!-- Lightbox -->
+<div class="lightbox" id="artModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <button class="lightbox__close" id="closeModal" aria-label="Close">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="prevArt" aria-label="Previous artwork">&#8249;</button>
+  <button class="lightbox__nav lightbox__nav--next" id="nextArt" aria-label="Next artwork">&#8250;</button>
+
+  <div class="lightbox__content">
+    <div class="lightbox__frame">
+      <img id="modalImg" alt="">
     </div>
+    <div class="lightbox__plaque">
+      <p class="lightbox__category" id="modalCategory"></p>
+      <h2 id="modalTitle"></h2>
+      <p class="lightbox__artist" id="modalArtist"></p>
+      <p class="lightbox__desc" id="modalDesc"></p>
+    </div>
+  </div>
 </div>
 
-<footer>
-    <p>© 2026 Virtual Art Gallery | Created by Preeti Chikkali</p>
+<footer class="site-footer">
+  <p>&copy; 2026 Virtual Art Gallery &middot; Created by Preeti Chikkali</p>
 </footer>
 
 <script src="script.js"></script>
